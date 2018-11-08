@@ -12,8 +12,16 @@ function createGetMethod() {
   this.get(
     '/',
     (req, res, next) => {
-      this.model.findAll(req.body).then(result => {
-        res.json(result);
+      this.model.findAll({}).then(result => {
+        if (!result || result.length > 0) {
+          return next({
+            code: HttpStatusCodes.BAD_REQUEST,
+            message: 'No record found',
+            data: req.query
+          });
+        }
+
+        return res.json(result);
       }).catch(e => {
         next(e);
       });
