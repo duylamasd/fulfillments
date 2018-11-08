@@ -12,19 +12,69 @@ function createGetMethod() {
   this.get(
     '/',
     (req, res, next) => {
-      this.model.findAll({}).then(result => {
-        if (!result || result.length > 0) {
-          return next({
-            code: HttpStatusCodes.BAD_REQUEST,
-            message: 'No record found',
-            data: req.query
-          });
-        }
+      let isCounting = req.query['$count'];
+      let [offset, limit] = [parseInt(req.query['$offset']), parseInt(req.query['$limit'])];
+      let query = req.query['$filter'] || {};
 
-        return res.json(result);
-      }).catch(e => {
-        next(e);
-      });
+      if (offset && isNaN(offset)) {
+        return next({
+          code: HttpStatusCodes.BAD_REQUEST,
+          message: 'offset is not a number',
+          offset: offset
+        });
+      }
+
+      if (limit && isNaN(limit)) {
+        return next({
+          code: HttpStatusCodes.BAD_REQUEST,
+          message: 'limit is not a number',
+          limit: limit
+        });
+      }
+
+      if (isCounting) {
+        this.model.count({
+          where: query
+        }).then(total => {
+          res.json({ total: total });
+        }).catch(e => {
+          next(e);
+        });
+      } else if (offset && limit) {
+        this.model.findAll({
+          where: query,
+          offset: offset,
+          limit: limit
+        }).then(rows => {
+          if (!rows || rows.length === 0) {
+            return next({
+              code: HttpStatusCodes.NOT_FOUND,
+              message: 'No record found',
+              query: query
+            });
+          }
+
+          return res.json(rows);
+        }).catch(e => {
+          next(e);
+        });
+      } else {
+        this.model.findAll({
+          where: query
+        }).then(rows => {
+          if (!rows || rows.length === 0) {
+            return next({
+              code: HttpStatusCodes.NOT_FOUND,
+              message: 'No record found',
+              query: query
+            });
+          }
+
+          return res.json(rows);
+        }).catch(e => {
+          next(e);
+        });
+      }
     }
   );
 }
