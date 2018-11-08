@@ -1,29 +1,22 @@
 'use strict';
 
-const express = require('express');
-const Router = express.Router();
+const { checkSchema } = require('express-validator/check');
+const Warehouse = require('../models').Warehouses;
+const BaseRouter = require('./base');
 const Shelf = require('../models').Shelf;
 
-Router.get(
-  '/',
-  (req, res, next) => {
-    Shelf.findAll({}).then(whs => {
-      res.json(whs);
-    }).catch(e => {
-      next(e);
-    });
+const validator = checkSchema({
+  whId: {
+    in: 'body',
+    exists: {
+      errorMessage: 'whId is required'
+    },
+    isUUID: {
+      errorMessage: 'whId must be an UUID'
+    }
   }
-);
+});
 
-Router.post(
-  '/',
-  (req, res, next) => {
-    Shelf.create(req.body).then(s => {
-      res.json(s)
-    }).catch(e => {
-      next(e);
-    });
-  }
-);
+const Router = new BaseRouter(Shelf, validator);
 
 module.exports = Router;

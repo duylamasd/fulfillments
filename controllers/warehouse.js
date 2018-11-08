@@ -1,31 +1,10 @@
 'use strict';
 
-const express = require('express');
-const Router = express.Router();
+const BaseRouter = require('./base');
 const Warehouse = require('../models').Warehouses;
 const Shelf = require('../models').Shelf;
 
-Router.get(
-  '/',
-  (req, res, next) => {
-    Warehouse.findAll({}).then(whs => {
-      res.json(whs);
-    }).catch(e => {
-      next(e);
-    });
-  }
-);
-
-Router.post(
-  '/',
-  (req, res, next) => {
-    Warehouse.create({}).then(wh => {
-      res.json(wh);
-    }).catch(e => {
-      next(e);
-    });
-  }
-);
+const Router = new BaseRouter(Warehouse);
 
 Router.get(
   '/:id/shelves',
@@ -33,8 +12,8 @@ Router.get(
     let id = req.params.id;
     Warehouse.findByPk(id, {
       include: [
-        { model: Shelf, as: 'Shelves' }
-      ]
+        { model: Shelf, as: 'Shelves', separate: true }
+      ],
     }).then(wh => {
       res.json(wh);
     }).catch(e => {
