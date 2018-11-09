@@ -1,5 +1,6 @@
 'use strict';
 
+const sequelize = require('sequelize');
 const BaseRouter = require('./base');
 const Warehouse = require('../models').Warehouses;
 const Shelf = require('../models').Shelf;
@@ -10,10 +11,24 @@ Router.get(
   '/:id/shelves',
   (req, res, next) => {
     let id = req.params.id;
-    Warehouse.findByPk(id, {
-      include: [
-        { model: Shelf, as: 'Shelves', separate: true }
+    Warehouse.findAll({
+      attributes: [
+        'id',
+        [sequelize.col('Shelves.id'), 'shelfId']
       ],
+      where: { id: id },
+      include: [
+        {
+          model: Shelf,
+          as: 'Shelves',
+          required: false,
+          attributes: [],
+          duplicating: false,
+          distinct: true
+        }
+      ],
+      raw: true
+      // group: ['id']
     }).then(wh => {
       res.json(wh);
     }).catch(e => {
