@@ -31,5 +31,17 @@ module.exports = (sequelize, DataTypes) => {
     ]
   });
 
+  Member.associate = models => {
+    Member.hasMany(models.StoreEnt, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    Member.hasMany(models.FfmCenter, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+  };
+
   return Member;
 };

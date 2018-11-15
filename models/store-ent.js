@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  let Storeent = sequelize.define('Storeent', {
+  let StoreEnt = sequelize.define('StoreEnt', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -45,5 +45,17 @@ module.exports = (sequelize, DataTypes) => {
     ]
   });
 
-  return Storeent;
+  StoreEnt.associate = models => {
+    StoreEnt.belongsTo(models.Member, {
+      foreignKey: 'memberId',
+      targetKey: 'id'
+    });
+
+    StoreEnt.belongsTo(models.Store, {
+      foreignKey: 'id',
+      targetKey: 'id'
+    });
+  };
+
+  return StoreEnt;
 };
