@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'G',
       allowNull: false
     },
-    setCcurr: {
-      type: DataTypes.STRING(3)
+    setcCurr: {
+      type: DataTypes.CHAR(3)
     },
     identifier: {
-      type: DataTypes.STRING,
+      type: DataTypes.CHAR,
       allowNull: false
     },
     deleted: {
@@ -46,12 +46,26 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   StoreEnt.associate = models => {
+    // F_790
     StoreEnt.belongsTo(models.Member, {
       foreignKey: 'memberId',
       targetKey: 'id'
     });
 
-    StoreEnt.belongsTo(models.Store, {
+    // F_775
+    StoreEnt.hasOne(models.Store, {
+      foreignKey: 'id',
+      sourceKey: 'id'
+    });
+
+    // F_789
+    StoreEnt.belongsTo(models.SetcCurr, {
+      foreignKey: 'setcCurr',
+      targetKey: 'setcCurr'
+    });
+
+    // F_795
+    StoreEnt.belongsTo(models.StoreGrp, {
       foreignKey: 'id',
       targetKey: 'id'
     });

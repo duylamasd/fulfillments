@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     name: {
-      type: DataTypes.STRING
+      type: DataTypes.CHAR
     },
     defaultShipOffset: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     extFfmStoreNum: {
-      type: DataTypes.STRING(128)
+      type: DataTypes.CHAR(128)
     },
     inventoryOpFlags: {
       type: DataTypes.INTEGER,
@@ -61,18 +61,33 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   FfmCenter.associate = models => {
+    // F_317
     FfmCenter.belongsTo(models.Member, {
       foreignKey: 'memberId',
       targetKey: 'id'
     });
 
+    // F_776
     FfmCenter.hasMany(models.Store, {
       foreignKey: 'ffmCenterId',
       sourceKey: 'id'
     });
 
+    // F_772
     FfmCenter.hasMany(models.Store, {
       foreignKey: 'rtnFfmCtrId',
+      sourceKey: 'id'
+    });
+
+    // F_396
+    FfmCenter.hasMany(models.Inventory, {
+      foreignKey: 'ffmCenterId',
+      sourceKey: 'id'
+    });
+
+    // F_316
+    FfmCenter.hasMany(models.FfmCentDs, {
+      foreignKey: 'ffmCenterId',
       sourceKey: 'id'
     });
   };

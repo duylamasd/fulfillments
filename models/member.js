@@ -32,12 +32,44 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Member.associate = models => {
+    // F_790
     Member.hasMany(models.StoreEnt, {
       foreignKey: 'memberId',
       sourceKey: 'id'
     });
 
+    // F_317
     Member.hasMany(models.FfmCenter, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_203
+    Member.hasMany(models.CatEntry, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_253
+    Member.hasMany(models.Contract, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_406
+    Member.hasMany(models.ItemSpc, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_757
+    Member.hasMany(models.StAddress, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_108
+    Member.hasMany(models.BaseItem, {
       foreignKey: 'memberId',
       sourceKey: 'id'
     });

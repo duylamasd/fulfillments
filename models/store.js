@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
   let Store = sequelize.define('Store', {
     id: {
       type: DataTypes.UUID,
-      defaultValue: UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     storeGrpId: {
       type: DataTypes.UUIDV4,
       allowNull: false
     },
-    storeGryId: {
+    storeCgryId: {
       type: DataTypes.UUIDV4
     },
     languageId: {
@@ -26,20 +26,20 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 1
     },
     storeLevel: {
-      type: DataTypes.STRING(10)
+      type: DataTypes.CHAR(10)
     },
     directory: {
-      type: DataTypes.STRING
+      type: DataTypes.CHAR
     },
     quoteGoodFor: {
       type: DataTypes.INTEGER,
       defaultValue: 43200
     },
     field1: {
-      type: DataTypes.STRING
+      type: DataTypes.CHAR
     },
     field2: {
-      type: DataTypes.STRING
+      type: DataTypes.CHAR
     },
     allocationGoodFor: {
       type: DataTypes.INTEGER,
@@ -92,7 +92,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 86400
     },
     avsAcceptCodes: {
-      type: DataTypes.STRING(64)
+      type: DataTypes.CHAR(64)
     },
     crtDbyCntrId: {
       type: DataTypes.UUIDV4
@@ -140,7 +140,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     upDirectory: {
-      type: DataTypes.STRING
+      type: DataTypes.CHAR
     }
   }, {
     timestamps: true,
@@ -152,7 +152,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         name: 'I0000779',
-        fields: ['storeGryId']
+        fields: ['storeCgryId']
       },
       {
         name: 'I0000780',
@@ -175,22 +175,51 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Store.associate = models => {
-    Store.hasOne(models.StoreEnt, {
-      foreignKey: 'id'
+    // F_775
+    Store.belongsTo(models.StoreEnt, {
+      foreignKey: 'id',
+      sourceKey: 'id'
     });
 
+    // F_777
     Store.belongsTo(models.Language, {
       foreignKey: 'languageId',
       targetKey: 'id'
     });
 
+    // F_776
     Store.belongsTo(models.FfmCenter, {
       foreignKey: 'ffmCenterId',
       targetKey: 'id'
     });
 
+    // F_772
     Store.belongsTo(models.FfmCenter, {
       foreignKey: 'rtnFfmCtrId',
+      targetKey: 'id'
+    });
+
+    // F_393
+    Store.hasMany(models.Inventory, {
+      foreignKey: 'storeId',
+      sourceKey: 'id'
+    });
+
+    // F_773
+    Store.belongsTo(models.StoreCgry, {
+      foreignKey: 'storeCgryId',
+      targetKey: 'id'
+    });
+
+    // F_774
+    Store.belongsTo(models.StoreGrp, {
+      foreignKey: 'storeGrpId',
+      targetKey: 'id'
+    });
+
+    // F_925
+    Store.belongsTo(models.Contract, {
+      foreignKey: 'crtDbyCntrId',
       targetKey: 'id'
     });
   };

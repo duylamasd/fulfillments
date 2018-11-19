@@ -7,26 +7,26 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     localeName: {
-      type: DataTypes.STRING(16),
+      type: DataTypes.CHAR(16),
       allowNull: false,
       defaultValue: 'en_US'
     },
     language: {
-      type: DataTypes.STRING(5),
+      type: DataTypes.CHAR(5),
       defaultValue: 'en'
     },
     country: {
-      type: DataTypes.STRING(5),
+      type: DataTypes.CHAR(5),
       defaultValue: 'US'
     },
     variant: {
-      type: DataTypes.STRING(10)
+      type: DataTypes.CHAR(10)
     },
     encoding: {
-      type: DataTypes.STRING(32)
+      type: DataTypes.CHAR(32)
     },
     mimeCharset: {
-      type: DataTypes.STRING(32)
+      type: DataTypes.CHAR(32)
     }
   }, {
     timestamps: true,
@@ -34,7 +34,14 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Language.associate = models => {
+    // F_777
     Language.hasMany(models.Store, {
+      foreignKey: 'languageId',
+      sourceKey: 'id'
+    });
+
+    // F_315
+    Language.hasMany(models.FfmCentDs, {
       foreignKey: 'languageId',
       sourceKey: 'id'
     });
