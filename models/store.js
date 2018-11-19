@@ -26,20 +26,20 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 1
     },
     storeLevel: {
-      type: DataTypes.CHAR(10)
+      type: DataTypes.STRING(10)
     },
     directory: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     quoteGoodFor: {
       type: DataTypes.INTEGER,
       defaultValue: 43200
     },
     field1: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     field2: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     allocationGoodFor: {
       type: DataTypes.INTEGER,
@@ -92,7 +92,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 86400
     },
     avsAcceptCodes: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     crtDbyCntrId: {
       type: DataTypes.UUIDV4
@@ -140,7 +140,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     upDirectory: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     }
   }, {
     timestamps: true,
@@ -221,6 +221,12 @@ module.exports = (sequelize, DataTypes) => {
     Store.belongsTo(models.Contract, {
       foreignKey: 'crtDbyCntrId',
       targetKey: 'id'
+    });
+
+    // F_22
+    Store.hasMany(models.Account, {
+      foreignKey: 'storeId',
+      sourceKey: 'id'
     });
   };
 

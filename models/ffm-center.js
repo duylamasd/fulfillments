@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     name: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     defaultShipOffset: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     extFfmStoreNum: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     inventoryOpFlags: {
       type: DataTypes.INTEGER,
@@ -87,6 +87,18 @@ module.exports = (sequelize, DataTypes) => {
 
     // F_316
     FfmCenter.hasMany(models.FfmCentDs, {
+      foreignKey: 'ffmCenterId',
+      sourceKey: 'id'
+    });
+
+    // F_1092
+    FfmCenter.hasMany(models.OrdRelease, {
+      foreignKey: 'ffmCenterId',
+      sourceKey: 'id'
+    });
+
+    // F_586
+    FfmCenter.hasMany(models.PickBatch, {
       foreignKey: 'ffmCenterId',
       sourceKey: 'id'
     });

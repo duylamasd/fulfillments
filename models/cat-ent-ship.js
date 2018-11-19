@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DOUBLE
     },
     weightMeasure: {
-      type: DataTypes.CHAR(16)
+      type: DataTypes.STRING(16)
     },
     length: {
       type: DataTypes.DOUBLE
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DOUBLE
     },
     sizeMeasure: {
-      type: DataTypes.CHAR(16)
+      type: DataTypes.STRING(16)
     },
     nominalQuantity: {
       type: DataTypes.DOUBLE,
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 1.0
     },
     quantityMeasure: {
-      type: DataTypes.CHAR(16),
+      type: DataTypes.STRING(16),
       allowNull: false,
       defaultValue: 'C62'
     }

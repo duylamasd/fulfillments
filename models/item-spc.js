@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: true
     },
     partNumber: {
-      type: DataTypes.CHAR(64),
+      type: DataTypes.STRING(64),
       allowNull: false
     }
   }, {

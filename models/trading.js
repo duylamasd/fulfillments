@@ -66,6 +66,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'trdTypeId',
       targetKey: 'id'
     });
+
+    // F_22
+    Trading.hasOne(models.Account, {
+      foreignKey: 'id',
+      sourceKey: 'id'
+    });
   };
 
   return Trading;

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     setcNote: {
-      type: DataTypes.CHAR(40)
+      type: DataTypes.STRING(40)
     }
   }, {
     timestamps: true,
@@ -28,6 +28,18 @@ module.exports = (sequelize, DataTypes) => {
   SetcCurr.associate = models => {
     // F_789
     SetcCurr.hasMany(models.StoreEnt, {
+      foreignKey: 'setcCurr',
+      sourceKey: 'setcCurr'
+    });
+
+    // F_898
+    SetcCurr.hasMany(models.Users, {
+      foreignKey: 'setcCurr',
+      sourceKey: 'setcCurr'
+    });
+
+    // F_136
+    SetcCurr.hasMany(models.BuyerPo, {
       foreignKey: 'setcCurr',
       sourceKey: 'setcCurr'
     });

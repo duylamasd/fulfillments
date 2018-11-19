@@ -3,12 +3,12 @@
 module.exports = (sequelize, DataTypes) => {
   let QtyUnit = sequelize.define('QtyUnit', {
     id: {
-      type: DataTypes.CHAR(16),
+      type: DataTypes.STRING(16),
       allowNull: false,
       primaryKey: true
     },
     field1: {
-      type: DataTypes.CHAR(254)
+      type: DataTypes.STRING(254)
     }
   }, {
     timestamps: true,

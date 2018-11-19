@@ -8,78 +8,78 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     address1: {
-      type: DataTypes.CHAR(256)
+      type: DataTypes.STRING(256)
     },
     memberId: {
       type: DataTypes.UUIDV4,
       allowNull: false
     },
     address2: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     address3: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     city: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     country: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     email1: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     email2: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     },
     fax1: {
-      type: DataTypes.CHAR(32)
+      type: DataTypes.STRING(32)
     },
     fax2: {
-      type: DataTypes.CHAR(32)
+      type: DataTypes.STRING(32)
     },
     field1: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     field2: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     field3: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     phone1: {
-      type: DataTypes.CHAR(32)
+      type: DataTypes.STRING(32)
     },
     phone2: {
-      type: DataTypes.CHAR(32)
+      type: DataTypes.STRING(32)
     },
     state: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     zipCode: {
-      type: DataTypes.CHAR(40)
+      type: DataTypes.STRING(40)
     },
     firstname: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     lastname: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     middlename: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     personTitle: {
-      type: DataTypes.CHAR(50)
+      type: DataTypes.STRING(50)
     },
     businessTitle: {
-      type: DataTypes.CHAR(128)
+      type: DataTypes.STRING(128)
     },
     nickname: {
-      type: DataTypes.CHAR(254),
+      type: DataTypes.STRING(254),
       allowNull: false
     },
     url: {
-      type: DataTypes.CHAR(254)
+      type: DataTypes.STRING(254)
     }
   }, {
     timestamps: true,

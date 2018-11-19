@@ -73,6 +73,72 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'memberId',
       sourceKey: 'id'
     });
+
+    // F_738
+    Member.hasMany(models.SchConfig, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_896
+    Member.hasOne(models.Users, {
+      foreignKey: 'id',
+      sourceKey: 'id'
+    });
+
+    // F_1138
+    Member.hasMany(models.Orders, {
+      foreignKey: 'editorId',
+      sourceKey: 'id'
+    });
+
+    // F_516
+    Member.hasMany(models.Orders, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_555
+    Member.hasOne(models.OrgEntity, {
+      foreignKey: 'id',
+      sourceKey: 'id'
+    });
+
+    // F_59
+    Member.hasMany(models.Address, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_57
+    Member.hasMany(models.AddrBook, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_24
+    Member.hasMany(models.Account, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_1089
+    Member.hasMany(models.OrdRelease, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_587
+    Member.hasMany(models.PickBatch, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
+
+    // F_1103
+    Member.hasMany(models.AtchTgt, {
+      foreignKey: 'memberId',
+      sourceKey: 'id'
+    });
   };
 
   return Member;

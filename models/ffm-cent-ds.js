@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUIDV4
     },
     description: {
-      type: DataTypes.CHAR(4000)
+      type: DataTypes.STRING(4000)
     },
     displayName: {
-      type: DataTypes.CHAR
+      type: DataTypes.STRING
     }
   }, {
     timestamps: true,

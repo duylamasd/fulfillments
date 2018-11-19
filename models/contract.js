@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0
     },
     name: {
-      type: DataTypes.CHAR(200),
+      type: DataTypes.STRING(200),
       allowNull: false
     },
     memberId: {
@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     comments: {
-      type: DataTypes.CHAR(4000)
+      type: DataTypes.STRING(4000)
     },
     timeApproved: {
       type: DataTypes.DATE

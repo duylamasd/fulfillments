@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     quantityMeasure: {
-      type: DataTypes.CHAR(16),
+      type: DataTypes.STRING(16),
       allowNull: false,
       defaultValue: 'C62'
     },

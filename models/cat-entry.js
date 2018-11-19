@@ -15,18 +15,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUIDV4
     },
     catEntTypeId: {
-      type: DataTypes.CHAR(16),
+      type: DataTypes.STRING(16),
       allowNull: false
     },
     partNumber: {
-      type: DataTypes.CHAR(64),
+      type: DataTypes.STRING(64),
       allowNull: false
     },
     mfPartNumber: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     mfName: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     deleted: {
       type: DataTypes.BOOLEAN,
@@ -82,13 +82,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     },
     upMfName: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     upMfPartNumber: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     },
     upPartNumber: {
-      type: DataTypes.CHAR(64)
+      type: DataTypes.STRING(64)
     }
   }, {
     timestamps: true,

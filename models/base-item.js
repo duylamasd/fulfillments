@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     itemTypeId: {
-      type: DataTypes.CHAR(4),
+      type: DataTypes.STRING(4),
       allowNull: false
     },
     quantityMeasure: {
-      type: DataTypes.CHAR(16),
+      type: DataTypes.STRING(16),
       allowNull: false,
       defaultValue: 'C62'
     },
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     partNumber: {
-      type: DataTypes.CHAR(72),
+      type: DataTypes.STRING(72),
       allowNull: false
     },
     quantityMultiple: {

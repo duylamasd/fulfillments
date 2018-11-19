@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     name: {
-      type: DataTypes.CHAR(50)
+      type: DataTypes.STRING(50)
     },
     remark: {
-      type: DataTypes.CHAR(254)
+      type: DataTypes.STRING(254)
     }
   }, {
     timestamps: true,

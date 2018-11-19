@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     description: {
-      type: DataTypes.CHAR(254)
+      type: DataTypes.STRING(254)
     }
   }, {
     timestamps: true,
