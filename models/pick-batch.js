@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull: false,
       defaultValue: DataTypes.UUIDV4,
-      priamryKey: true
+      primaryKey: true
     },
     ffmCenterId: {
       type: DataTypes.UUIDV4,

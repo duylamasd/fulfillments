@@ -43,6 +43,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'setcCurr',
       sourceKey: 'setcCurr'
     });
+
+    // F_175
+    SetcCurr.hasMany(models.CalScale, {
+      foreignKey: 'setcCurr',
+      sourceKey: 'setcCurr'
+    });
   };
 
   return SetcCurr;

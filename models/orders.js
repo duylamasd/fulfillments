@@ -169,7 +169,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     // F_517
-    Orders.belongsTo(modesl.StoreEnt, {
+    Orders.belongsTo(models.StoreEnt, {
       foreignKey: 'storeEntId',
       targetKey: 'id'
     });

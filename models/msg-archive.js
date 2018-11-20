@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     // F_1014
-    MsgArchive,belongsTo(models.Transport, {
+    MsgArchive.belongsTo(models.Transport, {
       foreignKey: 'transportId',
       targetKey: 'id'
     });

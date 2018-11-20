@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM,
       values: [
         'Web Channel',
-        'Physiscal Store',
+        'Physical Store',
         'Klosk',
         'Telesales',
         'B2B External',

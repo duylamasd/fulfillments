@@ -45,6 +45,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'quantityMeasure',
       sourceKey: 'id'
     });
+
+    // F_178
+    QtyUnit.hasMany(models.CalScale, {
+      foreignKey: 'qtyUnitId',
+      sourceKey: 'id'
+    });
   };
 
   return QtyUnit;

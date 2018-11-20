@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  let BaseItem = sequelize.define('BasseItem', {
+  let BaseItem = sequelize.define('BaseItem', {
     id: {
       type: DataTypes.UUID,
       allowNull: false,

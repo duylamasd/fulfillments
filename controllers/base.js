@@ -10,7 +10,7 @@ const HttpStatusCodes = require('http-status-codes');
  */
 function createGetMethod() {
   this.get(
-    '/',
+    '/all',
     (req, res, next) => {
       let isCounting = req.query['$count'];
       let [offset, limit] = [parseInt(req.query['$offset']), parseInt(req.query['$limit'])];

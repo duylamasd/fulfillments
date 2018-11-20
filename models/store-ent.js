@@ -189,6 +189,54 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'storeEntId',
       sourceKey: 'id'
     });
+
+    // F_1500
+    StoreEnt.hasMany(models.Experiment, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_152
+    StoreEnt.hasMany(models.CalCode, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_885
+    StoreEnt.hasMany(models.TxCdClass, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_164
+    StoreEnt.hasMany(models.CalMethod, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_177
+    StoreEnt.hasMany(models.CalScale, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_233
+    StoreEnt.hasMany(models.ChargeType, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_236
+    StoreEnt.hasMany(models.ChkCmd, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
+
+    // F_243
+    StoreEnt.hasMany(models.CmdReg, {
+      foreignKey: 'storeEntId',
+      sourceKey: 'id'
+    });
   };
 
   return StoreEnt;

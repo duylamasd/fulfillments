@@ -4,6 +4,11 @@
   "description": "Duylam's fulfillments first app",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "create-migration": "sequelize migration:create --name $NAME",
+    "undo-migration": "sequelize db:migrate:undo",
+    "undo-all-migrations": "sequelize db:migrate:undo:all",
+    "migrate": "sequelize db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

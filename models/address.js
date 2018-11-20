@@ -95,7 +95,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(128)
     },
     state: {
-      type: DataTypes.STRNIG(128)
+      type: DataTypes.STRING(128)
     },
     country: {
       type: DataTypes.STRING(128)
