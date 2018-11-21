@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     message: {
-      type: DataTypes.BLOB(1000000)
+      type: DataTypes.BLOB('long')
     },
     retries: {
       type: DataTypes.INTEGER

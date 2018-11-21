@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     },
     packSlipSml: {
-      type: DataTypes.TEXT(1000000000)
+      type: DataTypes.TEXT('long')
     },
     captureDate: {
       type: DataTypes.DATE

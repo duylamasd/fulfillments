@@ -168,7 +168,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         name: 'IPF00026',
-        type: 'FULLTEXT',
         fields: ['upDirectory']
       }
     ]

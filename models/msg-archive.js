@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     message: {
-      type: DataTypes.BLOB(1000000)
+      type: DataTypes.BLOB('long')
     }
   }, {
     timestamps: true,

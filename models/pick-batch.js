@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUIDV4
     },
     pickSlipXml: {
-      type: DataTypes.TEXT(1000000000)
+      type: DataTypes.TEXT('long')
     },
     field1: {
       type: DataTypes.INTEGER

@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUIDV4,
       allowNull: false
     },
+    storeEntId: {
+      type: DataTypes.UUIDV4,
+      allowNull: false
+    },
     sccRecDelay: {
       type: DataTypes.INTEGER,
       allowNull: false,

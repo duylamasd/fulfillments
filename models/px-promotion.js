@@ -98,7 +98,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     xmlParam: {
-      type: DataTypes.TEXT(1000000)
+      type: DataTypes.TEXT('long')
     }
   }, {
     timestamps: true,

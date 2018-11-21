@@ -139,11 +139,11 @@ module.exports = (sequelize, DataTypes) => {
         fields: ['buyerPoId']
       },
       {
-        type: 'I0001508',
+        name: 'I0001508',
         fields: ['status', 'updatedAt']
       },
       {
-        type: 'I173124',
+        name: 'I173124',
         fields: ['timePlaced']
       }
     ]

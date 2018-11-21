@@ -68,7 +68,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     ruleXml: {
-      type: DataTypes.TEXT(1000000)
+      type: DataTypes.TEXT('long')
     }
   }, {
     timestamps: true,
