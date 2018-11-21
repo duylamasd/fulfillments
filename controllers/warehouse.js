@@ -1,7 +1,7 @@
 'use strict';
 
 const sequelize = require('sequelize');
-const BaseRouter = require('./base');
+const { BaseRouter } = require('../utils');
 const Warehouse = require('../models').Warehouses;
 const Shelf = require('../models').Shelf;
 

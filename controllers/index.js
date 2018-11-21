@@ -5,5 +5,5 @@ const ShelfController = require('./shelf');
 
 module.exports = {
   WarehouseController,
-  ShelfController
+  ShelfController,
 };
