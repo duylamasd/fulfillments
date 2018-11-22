@@ -36,7 +36,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeIndex('PxTemplate', 'I0000420').then(async () => {
-      await queryInterface.dropTable('PxTable');
+      await queryInterface.dropTable('PxTemplate');
     });
   }
 };
